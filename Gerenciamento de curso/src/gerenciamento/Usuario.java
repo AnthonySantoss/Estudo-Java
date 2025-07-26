@@ -7,6 +7,12 @@ public class Usuario {
     private String email;
     private String senha;
 
+    public Usuario (int id_user, String nome, String email, String senha){
+        this.id_user = id_user;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
 
     public String getNome() {
         return nome;
@@ -24,4 +30,11 @@ public class Usuario {
         this.email = email;
     }
 
+    public String getSenha(){
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }
