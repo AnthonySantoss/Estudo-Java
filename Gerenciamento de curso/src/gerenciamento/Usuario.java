@@ -2,13 +2,11 @@ package gerenciamento;
 
 public class Usuario {
 
-    private int id_user;
     private String nome;
     private String email;
     private String senha;
 
-    public Usuario (int id_user, String nome, String email, String senha){
-        this.id_user = id_user;
+    public Usuario (String nome, String email, String senha){
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -19,7 +17,13 @@ public class Usuario {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        //Verificando se campo nome está vazio.
+        if (nome != null){
+            this.nome = nome;
+        } else {
+            System.out.println("É obrigatorio preencher campo nome");
+        }
+
     }
 
     public String getEmail() {
@@ -27,7 +31,14 @@ public class Usuario {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        //Criado para verificação do indice "@"
+        int emailValido = email.indexOf('@');
+        //Verificar se campo está vazio e validando o email.
+        if (email != null && emailValido > 0) {
+            this.email = email;
+        } else {
+            System.out.println("Email inválido ou campo vázio");
+        }
     }
 
     public String getSenha(){
@@ -35,6 +46,22 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        //Verificando se senha está vazia.
+        if (senha != null){
+            this.senha = senha;
+        } else {
+            System.out.println("Preencher campo correspondente a senha.");
+        }
+
+    }
+
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
     }
 }

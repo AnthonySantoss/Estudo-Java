@@ -1,11 +1,16 @@
 package gerenciamento;
 
+import java.util.ArrayList;
+
 public class Curso {
 
-    public String nome;
+    private String nome;
     private String cod_curso;
 
-    Curso (){
+    private ArrayList<Aluno> listaAlunos = new ArrayList<>();
+
+
+    public Curso (String nome, String cod_curso){
         this.nome = nome;
         this.cod_curso = cod_curso;
     }
@@ -24,5 +29,15 @@ public class Curso {
 
     public void setCod_curso(String cod_curso) {
         this.cod_curso = cod_curso;
+    }
+
+    void cadastrarAluno(Aluno aluno){
+        listaAlunos.add(aluno);
+    }
+
+    public void listaAlunos() {
+        for (Aluno aluno: listaAlunos){
+            System.out.println(aluno);
+        }
     }
 }
