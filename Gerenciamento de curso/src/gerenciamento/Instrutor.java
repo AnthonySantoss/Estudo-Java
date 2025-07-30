@@ -7,10 +7,10 @@ public class Instrutor extends Usuario{
     public String materia;
     public String nivel_academico;
 
-    Instrutor (String nome, String email, String senha, String materia, String nivel_academico){
+    public Instrutor(String nome, String email, String senha, String materia, String nivelAcademico){
         super(nome, email, senha);
         this.materia = materia;
-        this.nivel_academico = nivel_academico;
+        this.nivel_academico = nivelAcademico;
     }
 
     public String getMateria() {
@@ -51,12 +51,13 @@ public class Instrutor extends Usuario{
         };
     }
 
-    ArrayList<String> listaCursos = new ArrayList<>();
+
+    ArrayList<String> adicionarCursos = new ArrayList<>();
 
     //Metodo para instrutores criar curso.
-    void criarCurso(String curso){
+    public void criarCurso(String curso){
         if (curso != null){
-            listaCursos.add(curso);
+            adicionarCursos.add(curso);
         } else {
             System.out.println("Digite o nome do curso");
         }
