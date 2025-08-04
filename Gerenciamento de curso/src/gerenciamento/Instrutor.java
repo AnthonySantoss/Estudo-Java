@@ -7,10 +7,10 @@ public class Instrutor extends Usuario{
     public String materia;
     public String nivel_academico;
 
-    public Instrutor(String nome, String email, String senha, String materia, String nivelAcademico){
+    public Instrutor(String nome, String email, String senha, String materia, String nivel_academico){
         super(nome, email, senha);
         this.materia = materia;
-        this.nivel_academico = nivelAcademico;
+        this.nivel_academico = nivel_academico;
     }
 
     public String getMateria() {

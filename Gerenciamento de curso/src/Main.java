@@ -62,13 +62,15 @@ public class Main {
                 System.out.print("senha: ");
                 senha = entrada.nextLine();
 
-                //Criação de um novo instrutor
+                //Criação de um novo Aluno
                 Aluno novoAluno = new Aluno(nome, email, senha);
 
                 System.out.println("Aluno " + novoAluno.getNome() + " cadastrado!");
             }
 
         } while (opcao != 0);
+
+
 
 
 
