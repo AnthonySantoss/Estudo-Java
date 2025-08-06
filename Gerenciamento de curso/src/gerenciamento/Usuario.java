@@ -1,5 +1,7 @@
 package gerenciamento;
 
+import java.util.regex.Pattern;
+
 public class Usuario {
 
     private String nome;
@@ -7,9 +9,9 @@ public class Usuario {
     private String senha;
 
     public Usuario (String nome, String email, String senha){
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
+        this.setNome(nome);
+        this.setEmail(email);
+        this.setSenha(senha);
     }
 
     public String getNome() {
@@ -18,10 +20,10 @@ public class Usuario {
 
     public void setNome(String nome) {
         //Verificando se campo nome está vazio.
-        if (nome != null){
+        if (nome != null && !nome.trim().isEmpty()){
             this.nome = nome;
         } else {
-            System.out.println("É obrigatorio preencher campo nome");
+            throw new IllegalArgumentException("O campo nome é obrigatório.");
         }
 
     }
@@ -31,13 +33,13 @@ public class Usuario {
     }
 
     public void setEmail(String email) {
-        //Criado para verificação do indice "@"
-        int emailValido = email.indexOf('@');
-        //Verificar se campo está vazio e validando o email.
-        if (email != null && emailValido > 0) {
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+
+        if (email != null && Pattern.matches(emailRegex, email)) {
             this.email = email;
         } else {
-            System.out.println("Email inválido ou campo vázio");
+            // A exceção que será capturada pela classe Main.
+            throw new IllegalArgumentException("Formato de e-mail inválido.");
         }
     }
 
@@ -46,13 +48,11 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        //Verificando se senha está vazia.
-        if (senha != null){
+        if (senha != null && !senha.isEmpty()) {
             this.senha = senha;
         } else {
-            System.out.println("Preencher campo correspondente a senha.");
+            throw new IllegalArgumentException("O campo senha é obrigatório.");
         }
-
     }
 
 
@@ -61,7 +61,6 @@ public class Usuario {
         return "Usuario{" +
                 "nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
                 '}';
     }
 }
