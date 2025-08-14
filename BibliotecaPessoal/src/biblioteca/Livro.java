@@ -1,11 +1,17 @@
 package biblioteca;
 
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.Locale;
+
 public class Livro {
 
     private String titulo;
     private String autor;
     private int anoPublicacao;
     private String genero;
+
+    private LocalDate date = LocalDate.now();
 
     public Livro(String titulo, String autor, int anoPublicacao, String genero) {
         this.titulo = titulo;
@@ -48,10 +54,19 @@ public class Livro {
     }
 
     public void setAnoPublicacao(int anoPublicacao) {
-        this.anoPublicacao = anoPublicacao;
+        if (anoPublicacao <= date.getYear()){
+            this.anoPublicacao = anoPublicacao;
+        } else {
+            throw new IllegalArgumentException("O ano tem que ser menor ou igual do que o ano atual.");
+        }
+
     }
 
     public void setGenero(String genero) {
-        this.genero = genero;
+        if (genero == "Masculino" || genero == "Femenino" && genero.equalsIgnoreCase(genero)){
+            this.genero = genero;
+        } else {
+            throw new IllegalArgumentException("O campo gênero é obrigatório");
+        }
     }
 }
