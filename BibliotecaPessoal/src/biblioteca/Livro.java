@@ -63,7 +63,7 @@ public class Livro {
     }
 
     public void setGenero(String genero) {
-        if (genero == "Masculino" || genero == "Femenino" && genero.equalsIgnoreCase(genero)){
+        if (genero != null && genero.equalsIgnoreCase(genero)){
             this.genero = genero;
         } else {
             throw new IllegalArgumentException("O campo gênero é obrigatório");
