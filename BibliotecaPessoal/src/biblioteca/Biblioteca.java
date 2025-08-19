@@ -19,7 +19,17 @@ public class Biblioteca {
         }
     }
 
-    public void buscarLivro (){
-
+    public void buscarLivroTitulo (String livroTitulo){
+        for (Livro livro : Livros){
+            if (livro.getTitulo().equals(livroTitulo)){
+                System.out.println("Livro encontrado: " + livroTitulo);
+            } else {
+                System.out.println("O livro não está disponível");
+            }
+        }
     }
+
+
+
+
 }
