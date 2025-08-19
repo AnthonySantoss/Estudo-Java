@@ -37,7 +37,7 @@ public class Livro {
     }
 
     public void setTitulo(String titulo) {
-        if (titulo != null && titulo.trim().isEmpty()){
+        if (titulo != null || titulo.trim().isEmpty()){
             this.titulo = titulo;
         } else {
             throw new IllegalArgumentException("O campo título é obrigatório");
@@ -45,7 +45,7 @@ public class Livro {
     }
 
     public void setAutor(String autor) {
-        if (autor != null && autor.trim().isEmpty()){
+        if (autor != null || autor.trim().isEmpty()){
             this.autor = autor;
         } else {
             throw new IllegalArgumentException("O campo autor é obrigatório");
@@ -63,7 +63,7 @@ public class Livro {
     }
 
     public void setGenero(String genero) {
-        if (genero != null && genero.equalsIgnoreCase(genero)){
+        if (genero != null || genero.equalsIgnoreCase(genero)){
             this.genero = genero;
         } else {
             throw new IllegalArgumentException("O campo gênero é obrigatório");
