@@ -1,7 +1,6 @@
 package biblioteca;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Biblioteca {
 
@@ -30,6 +29,14 @@ public class Biblioteca {
     }
 
 
-
+    public void buscarLivroAutor (String livroAutor) {
+        for (Livro livro : Livros) {
+            if (livro.getAutor().equals(livroAutor)){
+                System.out.println("Livro encontrado: " + livroAutor);
+            } else {
+                System.out.println("O livro não está disponível");
+            }
+        }
+    }
 
 }
