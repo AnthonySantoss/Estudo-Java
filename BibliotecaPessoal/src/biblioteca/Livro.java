@@ -63,10 +63,22 @@ public class Livro {
     }
 
     public void setGenero(String genero) {
-        if (genero != null || genero.equalsIgnoreCase(genero)){
+        if (genero != null && genero.trim().isEmpty()){
             this.genero = genero;
         } else {
             throw new IllegalArgumentException("O campo gênero é obrigatório");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Título: " + getTitulo() +
+                ", Autor:" + getAutor() +
+                ", Ano de Publicação: " + getAnoPublicacao() +
+                ", Gênero: " + getGenero();
+    }
+
+    public String formatarCsv(){
+        return getTitulo() + ", " + getAutor() + ", " + getAnoPublicacao() + ", " + getGenero();
     }
 }
