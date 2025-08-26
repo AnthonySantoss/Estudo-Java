@@ -14,10 +14,10 @@ public class Livro {
     private LocalDate date = LocalDate.now();
 
     public Livro(String titulo, String autor, int anoPublicacao, String genero) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.anoPublicacao = anoPublicacao;
-        this.genero = genero;
+        setTitulo(titulo);
+        setAutor(autor);
+        setAnoPublicacao(anoPublicacao);
+        setGenero(genero);
     }
 
     public String getTitulo() {
@@ -37,18 +37,18 @@ public class Livro {
     }
 
     public void setTitulo(String titulo) {
-        if (titulo != null || titulo.trim().isEmpty()){
-            this.titulo = titulo;
-        } else {
+        if (titulo == null || titulo.trim().isEmpty()){
             throw new IllegalArgumentException("O campo título é obrigatório");
+        } else {
+            this.titulo = titulo;
         }
     }
 
     public void setAutor(String autor) {
-        if (autor != null || autor.trim().isEmpty()){
-            this.autor = autor;
-        } else {
+        if (autor == null || autor.trim().isEmpty()){
             throw new IllegalArgumentException("O campo autor é obrigatório");
+        } else {
+            this.autor = autor;
         }
 
     }
@@ -63,10 +63,10 @@ public class Livro {
     }
 
     public void setGenero(String genero) {
-        if (genero != null && genero.trim().isEmpty()){
-            this.genero = genero;
-        } else {
+        if (genero == null || genero.trim().isEmpty()){
             throw new IllegalArgumentException("O campo gênero é obrigatório");
+        } else {
+            this.genero = genero;
         }
     }
 

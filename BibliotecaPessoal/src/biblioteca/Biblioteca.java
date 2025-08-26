@@ -36,8 +36,8 @@ public class Biblioteca {
     public void buscarLivroAutor (String livroAutor) {
         boolean autorEncontrado = false;
         for (Livro livro : Livros) {
-            if (livro.getAutor().equals(livroAutor)){
-                System.out.println("Livro encontrado: " + livroAutor);
+            if (livro.getAutor().equalsIgnoreCase(livroAutor)){
+                System.out.println("Livro encontrado: " + livro.getTitulo());
                 autorEncontrado = true;
             }
         }
@@ -63,6 +63,18 @@ public class Biblioteca {
             while (leitor.hasNextLine()){
                 String linha = leitor.nextLine();
                 String[] partes = linha.split(",");
+
+                //Pegando partes de array e limpando os espaços em branco.
+                String titulo = partes[0].trim();
+                String autor = partes[1].trim();
+                String genero = partes[3].trim();
+
+                //Transformando o array do ano em inteiro.
+                int anoPublicacao = Integer.parseInt(partes[2].trim());
+
+                Livro livroDoArquivo = new Livro(titulo, autor, anoPublicacao, genero);
+
+                this.adicionarLivro(livroDoArquivo);
             }
 
             System.out.println("Biblioteca carregada com sucesso.");

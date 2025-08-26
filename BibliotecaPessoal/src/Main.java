@@ -53,7 +53,7 @@ public class Main {
                     minhaBiblioteca.adicionarLivro(novoLivro);
 
                 } catch (IllegalArgumentException e){
-                    System.out.println("\n ERRO NO CADASTRO: " + e.getMessage() + "Tente novamente!");
+                    System.out.println("\n ERRO NO CADASTRO: " + e.getMessage() + ", Tente novamente!");
                 }
                 break;
 
@@ -81,12 +81,15 @@ public class Main {
                     System.out.println("Digite o nome do autor que deseja buscar: ");
                     String autor = sc.nextLine();
 
+
                     minhaBiblioteca.buscarLivroAutor(autor);
 
                     break;
 
             }
         } while (opcao != 0);
+
+        minhaBiblioteca.salvarLivros();
 
         sc.close();
 
