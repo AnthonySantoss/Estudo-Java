@@ -37,7 +37,7 @@ Para compilar e executar este projeto, você precisará ter o **JDK (Java Develo
 
 **Clone o Repositório (ou copie os arquivos):** Faça o download ou clone este repositório para um diretório de sua escolha.  
 Bash  
-git clone \[URL-DO-SEU-REPOSITORIO\]
+git clone https://github.com/AnthonySantoss/Estudo-Java.git
 
 1.
 2. **Abra o Terminal ou Prompt de Comando:** Navegue até o diretório onde os arquivos `.java` estão localizados (dentro da pasta `biblioteca`).
